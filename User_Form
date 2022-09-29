@@ -1,0 +1,50 @@
+Private Sub Label4_Click()
+
+End Sub
+
+Private Sub Label6_Click()
+
+End Sub
+
+Private Sub OptionButton1_Click()
+
+End Sub
+
+Private Sub TextBox1_Change()
+
+End Sub
+
+Private Sub Reset_Click()
+
+Dim msgvalue As VbMsgBoxResult
+msgvalue = MsgBox("do you want to reset the form ?", vbYesNo + vbInformation, "confirmation")
+If msgvalue = vbNo Then
+Exit Sub
+Else
+
+Call Reset_
+End If
+End Sub
+
+Private Sub save_Click()
+
+Dim msgvalue As VbMsgBoxResult
+msgvalue = MsgBox("do you want to save the data?", vbYesNo + vbInformation, "confirmation")
+If msgvalue = vbNo Then
+Exit Sub
+Else
+
+Call submit
+Call Reset_
+End If
+
+
+End Sub
+
+
+
+Private Sub UserForm_Initialize()
+
+Call Reset_
+
+End Sub
