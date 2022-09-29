@@ -1,0 +1,48 @@
+Public Sub submit()
+
+Dim sh As Worksheet
+Dim Irow As Long
+
+Set sh = ThisWorkbook.Worksheets("database")
+Irow = [counta(database!A:A)] + 1
+  With sh
+      .Cells(Irow, 1) = Irow - 1
+      .Cells(Irow, 2) = EntryForm.Id.Value
+      .Cells(Irow, 3) = EntryForm.Name_.Value
+      .Cells(Irow, 4) = IIf(EntryForm.Male.Value = True, "male", "female")
+      .Cells(Irow, 5) = EntryForm.dept.Value
+      .Cells(Irow, 6) = EntryForm.city_.Value
+      .Cells(Irow, 7) = EntryForm.country_.Value
+      .Cells(Irow, 8) = Application.UserName
+      .Cells(Irow, 9) = Now()
+End With
+End Sub
+Public Sub showForm()
+EntryForm.Show
+
+End Sub
+
+Public Sub Reset_()
+
+ Dim Irow As Long
+ Irow = [counta(database! A:A)]
+  With EntryForm
+ .Name_.Value = ""
+ .Id.Value = ""
+ .Female.Value = False
+ .Male.Value = False
+ .dept.Value = ""
+ .city_.Value = ""
+ .country_.Value = ""
+ 
+  .Lstdatabase.ColumnCount = 9
+  .Lstdatabase.ColumnHeads = True
+  If Irow > 1 Then
+   .Lstdatabase.RowSource = "database!A2:I" & Irow
+   Else
+   .Lstdatabase.RowSource = "database!A2:I2"
+  End If
+  
+  End With
+ 
+End Sub
